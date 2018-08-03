@@ -1,21 +1,54 @@
 <form #myForm="ngForm" (submit)="onSubmit(myForm)" >
-  <label>
-    <p>Nome</p>
-    <input type="text" name="nome" [(ngModel)]="informacoes.nome" >
-    {{ informacoes.nome }}
-  </label>
-  <label>
-    <p>Idade</p>
-    <input type="number" name="idade" ngModel >
-  </label>
-  <label>
-    <p>E-mail</p>
-    <input type="email" name="email" ngModel >
-  </label>
-  <label>
-    <p>Confirmar E-mail</p>
-    <input type="email" name="confirmaEmail" ngModel >
-  </label>
+  <div ngModelGroup="informacoes" >
+    <label>
+      <p>Nome</p>
+      <input type="text" name="nome" [(ngModel)]="informacoes.nome" >
+      {{ informacoes.nome }}
+    </label>
+    <label>
+      <p>Idade</p>
+      <input type="number" name="idade" ngModel >
+    </label>
+    <label>
+      <p>E-mail</p>
+      <input type="email" name="email" ngModel >
+    </label>
+    <label>
+      <p>Confirmar E-mail</p>
+      <input type="email" name="confirmaEmail" ngModel >
+    </label>
+  </div>
+  
+  <div ngModelGroup="endereco" >
+    <label>
+      <p>CEP</p>
+      <input type="text" name="cep" ngModel >
+    </label>
+    <label>
+      <p>Endereco</p>
+      <input type="text" name="logradouro" ngModel >
+    </label>
+    <label>
+      <p>Número</p>
+      <input type="text" name="numero" ngModel >
+    </label>
+    <label>
+      <p>Complemento</p>
+      <input type="text" name="complemento" ngModel >
+    </label>
+    <label>
+      <p>Bairro</p>
+      <input type="text" name="bairro" ngModel >
+    </label>
+    <label>
+      <p>Cidade</p>
+      <input type="text" name="localidade" ngModel >
+    </label>
+    <label>
+      <p>Estado</p>
+      <input type="text" name="uf" ngModel >
+    </label>
+  </div>
 
   <button type="submit" >Enviar</button>
 </form>
