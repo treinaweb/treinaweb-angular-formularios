@@ -7,10 +7,18 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./template-driven.component.css']
 })
 export class TemplateDrivenComponent implements OnInit {
+  
+  informacoes = {
+    nome: '',
+    idade: '',
+    email: '',
+    confirmaEmail: ''
+  }
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   onSubmit(myForm: NgForm){

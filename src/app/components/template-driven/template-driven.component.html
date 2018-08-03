@@ -1,7 +1,8 @@
 <form #myForm="ngForm" (submit)="onSubmit(myForm)" >
   <label>
     <p>Nome</p>
-    <input type="text" name="nome" ngModel >
+    <input type="text" name="nome" [(ngModel)]="informacoes.nome" >
+    {{ informacoes.nome }}
   </label>
   <label>
     <p>Idade</p>
