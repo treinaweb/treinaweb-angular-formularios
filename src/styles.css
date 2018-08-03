@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+html{
+    font-family: sans-serif;
+}
+
+form{
+    margin: 50px auto;
+    padding: 0 15px;
+    max-width: 960px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px 40px;
+}
+
+
+label:nth-child(4){
+    margin-bottom: 40px;
+}
+
+input, select{
+    width: 100%;
+    font-size: 18px;
+    padding: 10px 5px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+input[type="radio"],input[type="checkbox"]{
+    width: 20px;
+}
+
+p {
+    margin: 0 0 5px 0;
+}
+
+
+button{
+    width: 150px;
+    height: 40px;
+    align-self: end;
+    justify-self: center;
+    background-color: #0062ac;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+button:hover{
+    opacity: 0.8;
+}
