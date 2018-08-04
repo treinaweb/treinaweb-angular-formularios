@@ -22,7 +22,7 @@
   <div ngModelGroup="endereco" >
     <label>
       <p>CEP</p>
-      <input type="text" name="cep" ngModel >
+      <input type="text" name="cep" ngModel #cep (blur)="getAddress(cep.value)" >
     </label>
     <label>
       <p>Endereco</p>
