@@ -1,0 +1,13 @@
+input.ng-dirty.ng-invalid{
+    border: 2px solid red;
+}
+
+input.ng-dirty.ng-valid{
+    border: 2px solid green;
+}
+
+form.ng-invalid button{
+    pointer-events: none;
+    opacity: 0.8;
+    background-color: darkgray;
+}
