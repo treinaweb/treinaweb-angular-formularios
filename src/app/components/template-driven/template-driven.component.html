@@ -2,12 +2,16 @@
   <div ngModelGroup="informacoes" >
     <label>
       <p>Nome</p>
-      <input type="text" name="nome"  required minlength="3" maxlength="5" [(ngModel)]="informacoes.nome" >
+      <input #elNome="ngModel" type="text" name="nome"  required minlength="3" maxlength="5" [(ngModel)]="informacoes.nome" >
       {{ informacoes.nome }}
+      <ul *ngIf="elNome.dirty && elNome.invalid" >
+        <li *ngIf="elNome.errors?.required" >Campo é obrigatório</li>
+        <li *ngIf="elNome.errors?.minlength" >Nome muito curto</li>
+      </ul>
     </label>
     <label>
       <p>Idade</p>
-      <input type="number" name="idade" ngModel >
+      <input type="number" name="idade" ngModel [disabled]="elNome.invalid" >
     </label>
     <label>
       <p>E-mail</p>
