@@ -21,7 +21,7 @@
   <div formGroupName="endereco" >
     <label>
       <p>CEP</p>
-      <input type="text" formControlName="cep"  >
+      <input type="text" formControlName="cep" (blur)="getAddress()" >
     </label>
     <label>
       <p>Endereco</p>

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
@@ -11,7 +12,8 @@ export class DataDrivenComponent implements OnInit {
   myForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -19,7 +21,7 @@ export class DataDrivenComponent implements OnInit {
       nome: new FormControl(null),
       email: new FormControl(null)
     });*/
-
+    
     const fb = this.formBuilder;
     this.myForm = fb.group({
       informacoes: fb.group({
@@ -38,6 +40,15 @@ export class DataDrivenComponent implements OnInit {
         uf: [null]
       })
     })
+  }
+
+  getAddress(){
+    this.http.get(`http://viacep.com.br/ws/${this.myForm.get('endereco.cep').value}/json/`)
+      .subscribe(
+        endereco => {
+          this.myForm.patchValue({endereco})
+        }
+      )
   }
 
 }
