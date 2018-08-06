@@ -40,6 +40,10 @@ export class DataDrivenComponent implements OnInit {
         uf: [null]
       })
     })
+
+    this.myForm.get('informacoes.nome').valueChanges.subscribe(
+      value => console.log('nome alterado: ', value)
+    )
   }
 
   getAddress(){
