@@ -11,6 +11,13 @@ export class DataDrivenComponent implements OnInit {
 
   myForm: FormGroup;
 
+  states = [
+    { nome: 'São Paulo', sigla: 'SP' },
+    { nome: 'Rio de Janeiro', sigla: 'RJ' },
+    { nome: 'Paraná', sigla: 'PR' },
+    { nome: 'Minas Gerais', sigla: 'MG' }
+  ]
+
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient

@@ -45,7 +45,10 @@
     </label>
     <label>
       <p>Estado</p>
-      <input type="text" formControlName="uf"  >
+      <!--input type="text" formControlName="uf"  -->
+      <select formControlName="uf" >
+        <option *ngFor="let state of states" [value]="state.sigla" >{{ state.nome }}</option>
+      </select>
     </label>
   </div>
 
