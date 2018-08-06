@@ -62,4 +62,16 @@ export class DataDrivenComponent implements OnInit {
       )
   }
 
+  setState(){
+    const myState = { nome: 'Rio de Janeiro', sigla: 'RJ' };
+    this.myForm.get('endereco.uf').setValue(myState);
+  }
+
+  compareStates(obj1, obj2){
+    if(obj1 && obj2){
+      return obj1.sigla === obj2.sigla;
+    }
+    return false;
+  }
+
 }

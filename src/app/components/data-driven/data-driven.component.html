@@ -1,3 +1,6 @@
+
+<button (click)="setState()" >CLICK ME</button>
+
 <form [formGroup]="myForm" >
   <div formGroupName="informacoes" >
     <label>
@@ -46,8 +49,11 @@
     <label>
       <p>Estado</p>
       <!--input type="text" formControlName="uf"  -->
-      <select formControlName="uf" >
+      <!--select formControlName="uf" >
         <option *ngFor="let state of states" [value]="state.sigla" >{{ state.nome }}</option>
+      </select-->
+      <select formControlName="uf" [compareWith]="compareStates" >
+        <option *ngFor="let state of states" [ngValue]="state" >{{ state.nome }}</option>
       </select>
     </label>
   </div>
