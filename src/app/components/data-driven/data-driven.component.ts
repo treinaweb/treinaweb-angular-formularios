@@ -20,9 +20,23 @@ export class DataDrivenComponent implements OnInit {
       email: new FormControl(null)
     });*/
 
-    this.myForm = this.formBuilder.group({
-      nome: ['Treinaweb'],
-      email: []
+    const fb = this.formBuilder;
+    this.myForm = fb.group({
+      informacoes: fb.group({
+        nome: [null],
+        idade: [null],
+        email: [null],
+        confirmaEmail: [null]
+      }),
+      endereco: fb.group({
+        cep: [null],
+        logradouro: [null],
+        numero: [null],
+        complemento: [null],
+        bairro: [null],
+        localidade: [null],
+        uf: [null]
+      })
     })
   }
 

@@ -1,10 +1,53 @@
 <form [formGroup]="myForm" >
-  <label>
-    <p>Nome</p>
-    <input type="text" formControlName="nome">
-  </label>
-  <label>
-    <p>E-mail</p>
-    <input type="email" formControlName="email">
-  </label>
+  <div formGroupName="informacoes" >
+    <label>
+      <p>Nome</p>
+      <input type="text" formControlName="nome" >
+    </label>
+    <label>
+      <p>Idade</p>
+      <input type="number" formControlName="idade"  >
+    </label>
+    <label>
+      <p>E-mail</p>
+      <input type="email" formControlName="email"  >
+    </label>
+    <label>
+      <p>Confirmar E-mail</p>
+      <input type="email" formControlName="confirmaEmail"  >
+    </label>
+  </div>
+  
+  <div formGroupName="endereco" >
+    <label>
+      <p>CEP</p>
+      <input type="text" formControlName="cep"  >
+    </label>
+    <label>
+      <p>Endereco</p>
+      <input type="text" formControlName="logradouro"  >
+    </label>
+    <label>
+      <p>Número</p>
+      <input type="text" formControlName="numero"  >
+    </label>
+    <label>
+      <p>Complemento</p>
+      <input type="text" formControlName="complemento"  >
+    </label>
+    <label>
+      <p>Bairro</p>
+      <input type="text" formControlName="bairro"  >
+    </label>
+    <label>
+      <p>Cidade</p>
+      <input type="text" formControlName="localidade"  >
+    </label>
+    <label>
+      <p>Estado</p>
+      <input type="text" formControlName="uf"  >
+    </label>
+  </div>
+
+  <button type="submit" >Enviar</button>
 </form>
