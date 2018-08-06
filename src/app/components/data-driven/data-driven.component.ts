@@ -35,7 +35,8 @@ export class DataDrivenComponent implements OnInit {
         nome: [null],
         idade: [null],
         email: [null],
-        confirmaEmail: [null]
+        confirmaEmail: [null],
+        empregado: [null]
       }),
       endereco: fb.group({
         cep: [null],
