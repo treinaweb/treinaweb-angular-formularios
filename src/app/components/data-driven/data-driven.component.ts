@@ -34,7 +34,7 @@ export class DataDrivenComponent implements OnInit {
     const fb = this.formBuilder;
     this.myForm = fb.group({
       informacoes: fb.group({
-        nome: [null, [Validators.required, Validators.minLength(4), this.validatorsService.nameValidation]],
+        nome: [null, [Validators.required, Validators.minLength(4), this.validatorsService.nameValidation], [this.validatorsService.userValidation.bind(this.validatorsService)]],
         idade: [null],
         email: [null, [Validators.required, Validators.email] ],
         confirmaEmail: [null],
