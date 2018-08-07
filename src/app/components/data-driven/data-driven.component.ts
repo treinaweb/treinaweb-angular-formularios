@@ -1,3 +1,4 @@
+import { ValidatorsService } from './../../services/validators.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
@@ -20,7 +21,8 @@ export class DataDrivenComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private validatorsService: ValidatorsService
   ) { }
 
   ngOnInit() {
@@ -32,7 +34,7 @@ export class DataDrivenComponent implements OnInit {
     const fb = this.formBuilder;
     this.myForm = fb.group({
       informacoes: fb.group({
-        nome: [null, [Validators.required, Validators.minLength(4)]],
+        nome: [null, [Validators.required, Validators.minLength(4), this.validatorsService.nameValidation]],
         idade: [null],
         email: [null, [Validators.required, Validators.email] ],
         confirmaEmail: [null],
