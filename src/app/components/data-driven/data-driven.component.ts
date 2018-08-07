@@ -9,7 +9,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
   styleUrls: ['./data-driven.component.css']
 })
 export class DataDrivenComponent implements OnInit {
-
+  myFormList: FormGroup;
   myForm: FormGroup;
 
   states = [
@@ -32,6 +32,11 @@ export class DataDrivenComponent implements OnInit {
     });*/
     
     const fb = this.formBuilder;
+
+    this.myFormList = fb.group({
+      fruits: fb.array([this.createFruit()])
+    })
+
     this.myForm = fb.group({
       informacoes: fb.group({
         nome: [null, [Validators.required, Validators.minLength(4), this.validatorsService.nameValidation], [this.validatorsService.userValidation.bind(this.validatorsService)]],
@@ -55,6 +60,13 @@ export class DataDrivenComponent implements OnInit {
     this.myForm.get('informacoes.nome').valueChanges.subscribe(
       value => console.log('nome alterado: ', value)
     )
+  }
+
+  createFruit(){
+    return this.formBuilder.group({
+      name: [null, [Validators.required, Validators.minLength(4)]],
+      price: [null, [Validators.required]]
+    })
   }
 
   onSubmit(){

@@ -1,5 +1,20 @@
+<form [formGroup]="myFormList" >
+  <div formArrayName="fruits" *ngFor="let item of myFormList.get('fruits').controls; let i = index;" >
+    <div [formGroupName]="i" >
+      <label>
+        <p>Nome</p>
+        <input type="text" formControlName="name" >
+        {{ myFormList.get('fruits.' + i + '.name').errors | json }}
+      </label>
+      <label>
+        <p>Preço</p>
+        <input type="number" formControlName="price" >
+      </label>
+    </div>
+  </div>
+</form>
 
-<button (click)="setState()" >CLICK ME</button>
+<hr>
 
 <form [formGroup]="myForm" (submit)="onSubmit()" >
   <div formGroupName="informacoes" >
