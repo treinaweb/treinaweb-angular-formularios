@@ -1,5 +1,8 @@
+<button (click)="addFruit()" >ADD</button>
+
 <form [formGroup]="myFormList" >
   <div formArrayName="fruits" *ngFor="let item of myFormList.get('fruits').controls; let i = index;" >
+    <hr>
     <div [formGroupName]="i" >
       <label>
         <p>Nome</p>
@@ -10,6 +13,7 @@
         <p>Preço</p>
         <input type="number" formControlName="price" >
       </label>
+      <button (click)="removeFruit(i)" >X</button>
     </div>
   </div>
 </form>

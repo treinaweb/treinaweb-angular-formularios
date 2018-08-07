@@ -1,7 +1,7 @@
 import { ValidatorsService } from './../../services/validators.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-data-driven',
@@ -60,6 +60,16 @@ export class DataDrivenComponent implements OnInit {
     this.myForm.get('informacoes.nome').valueChanges.subscribe(
       value => console.log('nome alterado: ', value)
     )
+  }
+
+  addFruit(){
+    const fruits = this.myFormList.get('fruits') as FormArray;
+    fruits.push(this.createFruit());
+  }
+
+  removeFruit(index){
+    const fruits = this.myFormList.get('fruits') as FormArray;
+    fruits.removeAt(index);
   }
 
   createFruit(){
