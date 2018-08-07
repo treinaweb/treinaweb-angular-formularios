@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-data-driven',
@@ -32,12 +32,12 @@ export class DataDrivenComponent implements OnInit {
     const fb = this.formBuilder;
     this.myForm = fb.group({
       informacoes: fb.group({
-        nome: [null],
+        nome: [null, [Validators.required, Validators.minLength(4)]],
         idade: [null],
-        email: [null],
+        email: [null, [Validators.required, Validators.email] ],
         confirmaEmail: [null],
         sexo: ['M'],
-        empregado: [null]
+        empregado: [null, [Validators.pattern('true')]]
       }),
       endereco: fb.group({
         cep: [null],
@@ -53,6 +53,10 @@ export class DataDrivenComponent implements OnInit {
     this.myForm.get('informacoes.nome').valueChanges.subscribe(
       value => console.log('nome alterado: ', value)
     )
+  }
+
+  onSubmit(){
+    console.log(this.myForm);
   }
 
   getAddress(){
